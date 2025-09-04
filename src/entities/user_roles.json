@@ -1,0 +1,50 @@
+
+{
+  "name": "user_roles",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["user_id", "project_id", "role", "assigned_at"],
+        "properties": {
+          "user_id": {
+            "bsonType": "string",
+            "description": "User ID from sub_project_user_account"
+          },
+          "project_id": {
+            "bsonType": "string",
+            "description": "Associated project ID"
+          },
+          "role": {
+            "bsonType": "string",
+            "enum": ["admin", "project_manager", "developer", "tester", "viewer"],
+            "description": "User role in the project"
+          },
+          "permissions": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Specific permissions for this role"
+          },
+          "assigned_by": {
+            "bsonType": "string",
+            "description": "User ID who assigned this role"
+          },
+          "assigned_at": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Role assignment timestamp"
+          },
+          "is_active": {
+            "bsonType": "bool",
+            "description": "Whether role is currently active"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

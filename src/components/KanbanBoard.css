@@ -1,0 +1,33 @@
+.kanban-board { height: 100%; }
+.kanban-grid { display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 16px; height: 100%; }
+@media (min-width: 768px) { .kanban-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .kanban-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; } }
+
+.kanban-column { display: flex; flex-direction: column; min-width: 0; }
+.kanban-header { border-top-left-radius: 12px; border-top-right-radius: 12px; padding: 12px; border-bottom: 1px solid #e5e7eb; }
+.kanban-header h3 { margin: 0; font-weight: 700; color: #1f2937; }
+.kanban-header .sub { font-size: 12px; color: #6b7280; }
+.header-gray { background: #f3f4f6; }
+.header-blue { background: #dbeafe; }
+.header-yellow { background: #fef3c7; }
+.header-green { background: #d1fae5; }
+
+.kanban-droppable { flex: 1; padding: 12px; min-height: 500px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; transition: background-color 120ms ease; background: #f9fafb; }
+.kanban-droppable.dragover { background: #eff6ff; }
+
+.kanban-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); margin-bottom: 12px; cursor: pointer; }
+.kanban-card.rotate { transform: rotate(3deg); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+.kanban-card h4 { margin: 0 0 6px 0; color: #111827; font-weight: 600; font-size: 14px; }
+.kanban-card .desc { color: #4b5563; font-size: 12px; margin-bottom: 10px; }
+.kanban-meta { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #6b7280; }
+.kanban-meta .left { display: flex; align-items: center; gap: 8px; }
+.kanban-labels { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.kanban-chip { display: inline-block; padding: 2px 8px; font-size: 11px; background: #e5e7eb; color: #374151; border-radius: 9999px; }
+
+/* priority left border colors */
+.border-green { border-left: 4px solid #10b981; }
+.border-yellow { border-left: 4px solid #f59e0b; }
+.border-orange { border-left: 4px solid #fb923c; }
+.border-red { border-left: 4px solid #ef4444; }
+
+

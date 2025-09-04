@@ -1,0 +1,105 @@
+
+{
+    "name": "tasks",
+    "options": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["title", "description", "status", "priority", "project_id", "created_by", "created_at", "updated_at"],
+          "properties": {
+            "title": {
+              "bsonType": "string",
+              "minLength": 3,
+              "maxLength": 200,
+              "description": "Task title"
+            },
+            "description": {
+              "bsonType": "string",
+              "maxLength": 2000,
+              "description": "Task description"
+            },
+            "status": {
+              "bsonType": "string",
+              "enum": ["todo", "in_progress", "review", "done", "cancelled"],
+              "description": "Task status"
+            },
+            "priority": {
+              "bsonType": "string",
+              "enum": ["low", "medium", "high", "critical"],
+              "description": "Task priority"
+            },
+            "project_id": {
+              "bsonType": "string",
+              "description": "Associated project ID"
+            },
+            "assigned_to": {
+              "bsonType": "string",
+              "description": "Assigned user ID"
+            },
+            "reporter_id": {
+              "bsonType": "string",
+              "description": "Task reporter user ID"
+            },
+            "due_date": {
+              "bsonType": "string",
+              "title": "datetime",
+              "description": "Task due date"
+            },
+            "estimated_hours": {
+              "bsonType": "number",
+              "minimum": 0,
+              "description": "Estimated work hours"
+            },
+            "actual_hours": {
+              "bsonType": "number",
+              "minimum": 0,
+              "description": "Actual work hours"
+            },
+            "task_type": {
+              "bsonType": "string",
+              "enum": ["feature", "bug", "improvement", "documentation", "testing"],
+              "description": "Type of task"
+            },
+            "labels": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string"
+              },
+              "description": "Task labels"
+            },
+            "attachments": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "object",
+                "properties": {
+                  "filename": { "bsonType": "string" },
+                  "url": { "bsonType": "string" },
+                  "uploaded_by": { "bsonType": "string" },
+                  "uploaded_at": { "bsonType": "string", "title": "datetime" }
+                }
+              },
+              "description": "Task attachments"
+            },
+            "created_by": {
+              "bsonType": "string",
+              "description": "Creator user ID"
+            },
+            "created_at": {
+              "bsonType": "string",
+              "title": "datetime",
+              "description": "Creation timestamp"
+            },
+            "updated_at": {
+              "bsonType": "string",
+              "title": "datetime",
+              "description": "Last update timestamp"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "validationLevel": "moderate",
+      "validationAction": "warn"
+    }
+  }
+  

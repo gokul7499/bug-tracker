@@ -1,0 +1,68 @@
+
+{
+    "name": "notifications",
+    "options": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["title", "message", "type", "recipient_id", "is_read", "created_at"],
+          "properties": {
+            "title": {
+              "bsonType": "string",
+              "maxLength": 200,
+              "description": "Notification title"
+            },
+            "message": {
+              "bsonType": "string",
+              "maxLength": 500,
+              "description": "Notification message"
+            },
+            "type": {
+              "bsonType": "string",
+              "enum": ["task_assigned", "bug_reported", "comment_added", "status_changed", "deadline_reminder", "mention"],
+              "description": "Notification type"
+            },
+            "recipient_id": {
+              "bsonType": "string",
+              "description": "Recipient user ID"
+            },
+            "sender_id": {
+              "bsonType": "string",
+              "description": "Sender user ID"
+            },
+            "entity_type": {
+              "bsonType": "string",
+              "enum": ["task", "bug", "project", "comment"],
+              "description": "Related entity type"
+            },
+            "entity_id": {
+              "bsonType": "string",
+              "description": "Related entity ID"
+            },
+            "action_url": {
+              "bsonType": "string",
+              "description": "URL to navigate when notification is clicked"
+            },
+            "is_read": {
+              "bsonType": "bool",
+              "description": "Whether notification has been read"
+            },
+            "read_at": {
+              "bsonType": "string",
+              "title": "datetime",
+              "description": "Timestamp when notification was read"
+            },
+            "created_at": {
+              "bsonType": "string",
+              "title": "datetime",
+              "description": "Creation timestamp"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "validationLevel": "moderate",
+      "validationAction": "warn"
+    }
+  }
+  

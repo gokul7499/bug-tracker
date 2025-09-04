@@ -1,0 +1,74 @@
+
+{
+    "name": "comments",
+    "options": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["content", "author_id", "entity_type", "entity_id", "created_at"],
+          "properties": {
+            "content": {
+              "bsonType": "string",
+              "minLength": 1,
+              "maxLength": 2000,
+              "description": "Comment content"
+            },
+            "author_id": {
+              "bsonType": "string",
+              "description": "Comment author user ID"
+            },
+            "entity_type": {
+              "bsonType": "string",
+              "enum": ["task", "bug", "project"],
+              "description": "Type of entity being commented on"
+            },
+            "entity_id": {
+              "bsonType": "string",
+              "description": "ID of the entity being commented on"
+            },
+            "mentions": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string"
+              },
+              "description": "Array of mentioned user IDs"
+            },
+            "attachments": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "object",
+                "properties": {
+                  "filename": { "bsonType": "string" },
+                  "url": { "bsonType": "string" },
+                  "uploaded_at": { "bsonType": "string", "title": "datetime" }
+                }
+              },
+              "description": "Comment attachments"
+            },
+            "parent_comment_id": {
+              "bsonType": "string",
+              "description": "Parent comment ID for threading"
+            },
+            "is_edited": {
+              "bsonType": "bool",
+              "description": "Whether comment was edited"
+            },
+            "edited_at": {
+              "bsonType": "string",
+              "title": "datetime",
+              "description": "Last edit timestamp"
+            },
+            "created_at": {
+              "bsonType": "string",
+              "title": "datetime",
+              "description": "Creation timestamp"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "validationLevel": "moderate",
+      "validationAction": "warn"
+    }
+  }
+  

@@ -1,0 +1,85 @@
+
+{
+    "name": "projects",
+    "options": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["name", "description", "status", "project_manager_id", "created_at", "updated_at"],
+          "properties": {
+            "name": {
+              "bsonType": "string",
+              "minLength": 3,
+              "maxLength": 100,
+              "description": "Project name"
+            },
+            "description": {
+              "bsonType": "string",
+              "maxLength": 1000,
+              "description": "Project description"
+            },
+            "status": {
+              "bsonType": "string",
+              "enum": ["planning", "active", "on_hold", "completed", "cancelled"],
+              "description": "Project status"
+            },
+            "project_manager_id": {
+              "bsonType": "string",
+              "description": "Project manager user ID"
+            },
+            "team_members": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string"
+              },
+              "description": "Array of team member user IDs"
+            },
+            "start_date": {
+              "bsonType": "string",
+              "title": "datetime",
+              "description": "Project start date"
+            },
+            "end_date": {
+              "bsonType": "string",
+              "title": "datetime",
+              "description": "Project end date"
+            },
+            "priority": {
+              "bsonType": "string",
+              "enum": ["low", "medium", "high", "critical"],
+              "description": "Project priority"
+            },
+            "budget": {
+              "bsonType": "number",
+              "minimum": 0,
+              "description": "Project budget"
+            },
+            "progress": {
+              "bsonType": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Project completion percentage"
+            },
+            "created_by": {
+              "bsonType": "string",
+              "description": "Creator user ID"
+            },
+            "created_at": {
+              "bsonType": "string",
+              "title": "datetime",
+              "description": "Creation timestamp"
+            },
+            "updated_at": {
+              "bsonType": "string",
+              "title": "datetime",
+              "description": "Last update timestamp"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "validationLevel": "moderate",
+      "validationAction": "warn"
+    }
+  }
+  
