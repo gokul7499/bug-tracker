@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd'
-import { Task } from '../hooks/useTasks'
+import type { Task } from '../hooks/useTasks'
 import {Clock, User, AlertCircle, Paperclip} from 'lucide-react'
 import { format } from 'date-fns'
 import './KanbanBoard.css'
